@@ -131,7 +131,8 @@ class Proposals extends Security_Controller {
             "tax_id" => $this->request->getPost('tax_id') ? $this->request->getPost('tax_id') : 0,
             "tax_id2" => $this->request->getPost('tax_id2') ? $this->request->getPost('tax_id2') : 0,
             "company_id" => $this->request->getPost('company_id') ? $this->request->getPost('company_id') : get_default_company_id(),
-            "note" => $this->request->getPost('proposal_note')
+            "note" => $this->request->getPost('proposal_note'),
+            "email" => $this->request->getPost('proposal_email')
         );
 
         //save random code for new proposal
@@ -762,7 +763,7 @@ class Proposals extends Security_Controller {
         $message = decode_ajax_post_data($this->request->getPost('message'));
 
         $contact = $this->Users_model->get_one($contact_id);
-
+        
         $default_bcc = get_setting('send_proposal_bcc_to');
         $bcc_emails = "";
 
@@ -774,8 +775,10 @@ class Proposals extends Security_Controller {
             $bcc_emails = $custom_bcc;
         }
 
-        if (send_app_mail($contact->email, $subject, $message, array("cc" => $cc, "bcc" => $bcc_emails))) {
-            // change email status
+        $info_proposal = $this->Proposals_model->get_one($proposal_id);
+
+        if (send_app_mail_v2($contact->email, $info_proposal->email, $subject, $message, array("cc" => $cc, "bcc" => $bcc_emails))) {
+            // change email tatus
             $status_data = array("status" => "sent", "last_email_sent_date" => get_my_local_time());
             if ($this->Proposals_model->ci_save($status_data, $proposal_id)) {
                 echo json_encode(array('success' => true, 'message' => app_lang("proposal_sent_message"), "proposal_id" => $proposal_id));

@@ -65,6 +65,29 @@
                 </div>
             </div>
         <?php } ?>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="email" class="col-md-3"><?php echo app_lang('email'); ?></label>
+                <div class="col-md-9">
+                    <?php
+                    echo form_input(array(
+                        "id" => "proposal_email",
+                        "name" => "proposal_email",
+                        "value" => $model_info->email,
+                        "class" => "form-control",
+                        "placeholder" => app_lang('email'),
+                        "autocomplete" => "off",
+                        "data-rule-required" => true,
+                        "data-msg-required" => app_lang("field_required"),
+                        "data-rule-email" => true,
+                        "data-msg-email" => app_lang("invalid_email_address"),
+                    ));
+                    ?>
+                </div>
+            </div>
+        </div>
+
         <?php if ($client_id) { ?>
             <input type="hidden" name="proposal_client_id" value="<?php echo $client_id; ?>" />
         <?php } else { ?>

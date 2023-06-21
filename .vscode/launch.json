@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch CodeIgniter 4",
+      "type": "php",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.php",
+      "cwd": "${workspaceFolder}",
+      "port": 9000
+    }
+  ]
+}

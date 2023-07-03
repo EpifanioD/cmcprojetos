@@ -25,8 +25,11 @@ class Users_model extends Crud_model {
             return false;
         }
 
+        $logs_model = model("App\Models\Logs_model", false);
+
         if ($result_count === 1) {
             $user_info = $result->getRow();
+            $login_user_id = $logs_model->log_authenticate($user_info->id);
             return $this->verify_password($user_info, $password);
         } else {
             //same email on multiple client contacts

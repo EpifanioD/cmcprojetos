@@ -65,12 +65,13 @@
                 {title: "<?php echo app_lang("job_title") ?>", "class": "w15p", order_by: "job_title"},
                 {title: "<?php echo app_lang("email") ?>", "class": "w20p", order_by: "email"},
                 {title: "<?php echo app_lang("phone") ?>", "class": "w100", order_by: "phone"},
+                {title: 'Logs', "class": "w15p", order_by: "logs"},
                 {title: 'Skype', "class": "w15p", order_by: "skype"}
 <?php echo $custom_field_headers; ?>,
                 {title: '<i data-feather="menu" class="icon-16"></i>', "class": "text-center option w50", visible: showOptions}
             ],
-            printColumns: combineCustomFieldsColumns([0, 1, 2, 3, 4, 5, 6], '<?php echo $custom_field_headers; ?>'),
-            xlsColumns: combineCustomFieldsColumns([0, 1, 2, 3, 4, 5, 6], '<?php echo $custom_field_headers; ?>')
+            printColumns: combineCustomFieldsColumns([0, 1, 2, 3, 4, 5, 6, 7], '<?php echo $custom_field_headers; ?>'),
+            xlsColumns: combineCustomFieldsColumns([0, 1, 2, 3, 4, 5, 6, 7], '<?php echo $custom_field_headers; ?>')
         });
     });
 </script>

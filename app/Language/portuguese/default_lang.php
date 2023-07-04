@@ -4154,7 +4154,7 @@ $lang["contract_template_inserting_instruction"] = "Você perderá todas as alte
 
 $lang["ticket_info"] = "Informações do bilhete";
 
-
+$lang["log_info"] = "Informações de acesso";
 
 $lang["recurring_tasks"] = "Tarefas recorrentes";
 

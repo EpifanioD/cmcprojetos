@@ -1227,9 +1227,9 @@ class Clients extends Security_Controller {
         foreach ($list_data as $data) {
             $result_data[] = $this->_make_contact_row($data, $custom_fields, $hide_primary_contact_label);
         }
-
+        
         $result["data"] = $result_data;
-
+        
         echo json_encode($result);
     }
 
@@ -1276,6 +1276,7 @@ class Clients extends Security_Controller {
             $data->job_title,
             $data->email,
             $data->phone ? $data->phone : "-",
+            $data->logs = modal_anchor(get_uri("logs/view/" . $data->id), "<i data-feather='tablet' class='icon-16'></i>", array("class" => "action-option", "title" => app_lang('log_info'), "data-post-id" => $data->id, "data-post-view_type" => "modal_view")),
             $data->skype ? $data->skype : "-"
         );
 

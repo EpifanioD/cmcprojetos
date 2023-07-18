@@ -93,11 +93,13 @@ class Projects_model extends Crud_model {
 
         $this->db->query('SET SQL_BIG_SELECTS=1');
 
-        $sql = "SELECT $projects_table.*, $clients_table.company_name, $clients_table.currency_symbol,  total_points_table.total_points, completed_points_table.completed_points, $select_labels_data_query $select_custom_fieds
+        $sql = "SELECT $projects_table.*, $clients_table.company_name, $clients_table.currency_symbol,  total_points_table.total_points, completed_points_table.completed_points, completed_points_client.completed_points_client, project_progress_business.project_progress_business, $select_labels_data_query $select_custom_fieds
         FROM $projects_table
         LEFT JOIN $clients_table ON $clients_table.id= $projects_table.client_id
         LEFT JOIN (SELECT project_id, SUM(points) AS total_points FROM $tasks_table WHERE deleted=0 GROUP BY project_id) AS  total_points_table ON total_points_table.project_id= $projects_table.id
         LEFT JOIN (SELECT project_id, SUM(points) AS completed_points FROM $tasks_table WHERE deleted=0 AND status_id=3 GROUP BY project_id) AS  completed_points_table ON completed_points_table.project_id= $projects_table.id
+        LEFT JOIN (SELECT project_id, SUM(points) AS completed_points_client FROM rise_tasks, rise_users ru WHERE rise_tasks.deleted = 0 AND status_id = 3 and ru.id = rise_tasks.assigned_to and ru.user_type = 'client' GROUP BY project_id) AS completed_points_client ON completed_points_client.project_id = rise_projects.id
+        LEFT JOIN (SELECT project_id, SUM(points) AS project_progress_business FROM rise_tasks, rise_users ru WHERE rise_tasks.deleted = 0 AND status_id = 3 and ru.id = rise_tasks.assigned_to and ru.user_type = 'staff' GROUP BY project_id) AS project_progress_business ON project_progress_business.project_id = rise_projects.id
         $extra_join   
         $join_custom_fieds    
         WHERE $projects_table.deleted=0 $where $extra_where $custom_fields_where

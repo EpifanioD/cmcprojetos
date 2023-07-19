@@ -10,7 +10,7 @@
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item border-top text-center">
-            <span class="align-middle text-center">Total de Tasks</span>
+            <span class="align-middle text-center">Tarefas Gerais</span>
         </li>  
         <li class="list-group-item border-top">
             <?php echo app_lang("start_date"); ?>: <?php echo is_date_exists($project_info->start_date) ? format_to_date($project_info->start_date, false) : "-"; ?>
@@ -42,23 +42,8 @@
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item border-top text-center">
-            <span class="align-middle text-center">Tasks do Cliente</span>
-        </li>  
-        <li class="list-group-item border-top">
-            <?php echo app_lang("start_date"); ?>: <?php echo is_date_exists($project_info->start_date) ? format_to_date($project_info->start_date, false) : "-"; ?>
-        </li>
-        <li class="list-group-item border-top">
-            <?php echo app_lang("deadline"); ?>: <?php echo is_date_exists($project_info->deadline) ? format_to_date($project_info->deadline, false) : "-"; ?>
-        </li>
-        <?php if ($login_user->user_type === "staff" && $project_info->project_type === "client_project") { ?>
-            <li class="list-group-item border-top">
-                <?php echo app_lang("client"); ?>: <?php echo anchor(get_uri("clients/view/" . $project_info->client_id), $project_info->company_name); ?>
-            </li>
-        <?php } else { ?>
-            <li class="list-group-item border-top">
-                <?php echo app_lang("status"); ?>: <?php echo app_lang($project_info->status); ?>
-            </li>
-        <?php } ?>
+            <span class="align-middle text-center">Tarefas Cliente</span>
+        </li> 
     </ul>
 </div>
 
@@ -74,23 +59,8 @@
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item border-top text-center" >
-            <span class="align-middle text-center">Tasks da Empresa</span>
-        </li>       
-        <li class="list-group-item border-top">
-            <?php echo app_lang("start_date"); ?>: <?php echo is_date_exists($project_info->start_date) ? format_to_date($project_info->start_date, false) : "-"; ?>
+            <span class="align-middle text-center">Tarefas Internaa</span>
         </li>
-        <li class="list-group-item border-top">
-            <?php echo app_lang("deadline"); ?>: <?php echo is_date_exists($project_info->deadline) ? format_to_date($project_info->deadline, false) : "-"; ?>
-        </li>
-        <?php if ($login_user->user_type === "staff" && $project_info->project_type === "client_project") { ?>
-            <li class="list-group-item border-top">
-                <?php echo app_lang("client"); ?>: <?php echo anchor(get_uri("clients/view/" . $project_info->client_id), $project_info->company_name); ?>
-            </li>
-        <?php } else { ?>
-            <li class="list-group-item border-top">
-                <?php echo app_lang("status"); ?>: <?php echo app_lang($project_info->status); ?>
-            </li>
-        <?php } ?>
     </ul>
 </div>
 

@@ -2139,8 +2139,8 @@ class Projects extends Security_Controller {
 
 
             $view_data['project_progress'] = $project_info->total_points ? round(($project_info->completed_points / $project_info->total_points) * 100) : 0;
-            $view_data['project_progress_client'] = $project_info->total_points ? round(($project_info->completed_points_client / $view_data['project_progress']) * 100) : 0;
-            $view_data['project_progress_business'] = $project_info->total_points ? round(($project_info->project_progress_business / $view_data['project_progress']) * 100) : 0;
+            $view_data['project_progress_client'] = $project_info->total_points ? round(($project_info->completed_points_client / $project_info->total_points) * 100) : 0;
+            $view_data['project_progress_business'] = $project_info->total_points ? round(($project_info->project_progress_business / $project_info->total_points) * 100) : 0;
 
 
             return $view_data;

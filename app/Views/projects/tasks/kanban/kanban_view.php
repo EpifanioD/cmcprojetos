@@ -144,7 +144,7 @@
         var columnWidth = (335 * totalColumns) + 5;
 
         if (columnWidth > kanbanContainerWidth) {
-            $("#kanban-container").css({width: columnWidth + "px"});
+            $("#kanban-container").css({width: "100%"});
         } else {
             $("#kanban-container").css({width: "100%"});
         }

@@ -2136,11 +2136,21 @@ class Projects extends Security_Controller {
 
             }
 
+            if($project_info->completed_points_client == 0 && $project_info->completed_points_client_total == 0){
+                $value_total_client = 0;
+            }else{
+                $value_total_client = ($project_info->completed_points_client / $project_info->completed_points_client_total);
+            }
 
-
+            if($project_info->project_progress_business == 0 && $project_info->project_progress_business_total == 0){
+                $value_total_business = 0;
+            }else{
+                $value_total_business = ($project_info->project_progress_business / $project_info->project_progress_business_total);
+            }
+            
             $view_data['project_progress'] = $project_info->total_points ? round(($project_info->completed_points / $project_info->total_points) * 100) : 0;
-            $view_data['project_progress_client'] = $project_info->total_points ? round(($project_info->completed_points_client / $project_info->completed_points_client_total) * 100) : 0;
-            $view_data['project_progress_business'] = $project_info->total_points ? round(($project_info->project_progress_business / $project_info->project_progress_business_total) * 100) : 0;
+            $view_data['project_progress_client'] = $project_info->total_points ? round(($value_total_client) * 100) : 0;
+            $view_data['project_progress_business'] = $project_info->total_points ? round(($value_total_business) * 100) : 0;
 
 
             return $view_data;

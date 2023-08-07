@@ -1,4 +1,4 @@
-<div id="kanban-wrapper">
+<div id="kanban-wrapper" style="height: 800px;">
     <?php
     $columns_data = array();
 
@@ -161,6 +161,7 @@
         //set column scroll
 
         var columnHeight = $(window).height() - $(".kanban-item-list").offset().top - 57;
+        var columnHeight = 700;
         if (isMobile()) {
             columnHeight = $(window).height() - 30;
         }

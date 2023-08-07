@@ -1750,8 +1750,9 @@ img.mfp-img {
     background-image: linear-gradient(to top, #E5E9EC 0.5%, #f2f4f6 1%, #f2f4f6 99%);
   }
   .kanban-col {
-    width: 175px !important;
-    margin: 0 10px;
+    /* width: 175px !important; */
+    width: 100% !important;
+    /* margin: 0 10px; */
   }
   .kanban-col-title {
     padding: 10px !important;
@@ -1759,8 +1760,9 @@ img.mfp-img {
   }
   .kanban-item {
     padding: 5px 8px !important;
-    width: 175px !important;
-    margin: 0 0px 6px 0 !important;
+    /* width: 175px !important; */
+    width: 100% !important;
+    /* margin: 0 0px 6px 0 !important; */
   }
   .dataTables_filter label {
     margin: 0;
@@ -4954,12 +4956,15 @@ svg:not(.gantt) {
   padding-top: 15px;
   padding-bottom: 15px;
   background: #D9DEE2;
+  height: 100%;
 }
 .kanban-col {
   list-style-type: none;
   float: left;
-  margin: 0 15px;
-  width: 305px;
+  /* margin: 0 15px; */
+  width: 20%;
+  padding:0 10px;
+  box-sizing:border-box
 }
 .kanban-col-title {
   padding: 15px;
@@ -4972,7 +4977,7 @@ svg:not(.gantt) {
 }
 .kanban-item-list {
   max-height: 730px;
-  height: 730px;
+  height: 730px; 
   overflow: hidden;
 }
 .kanban-input .form-control {
@@ -4990,7 +4995,8 @@ svg:not(.gantt) {
   cursor: default;
   display: table;
   color: #4e5e6a;
-  width: 300px;
+  width:100%;
+  /* width: 300px; */
   border-radius: 5px;
 }
 .kanban-item:before, .kanban-item:after {

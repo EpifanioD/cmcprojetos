@@ -62,7 +62,7 @@ class DOMParser
     public function withString(string $content)
     {
         // converts all special characters to utf-8
-        $content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
+        $content = htmlentities($content, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         // turning off some errors
         libxml_use_internal_errors(true);

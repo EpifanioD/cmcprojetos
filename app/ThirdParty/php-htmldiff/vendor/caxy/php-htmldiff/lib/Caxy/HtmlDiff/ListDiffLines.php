@@ -401,7 +401,7 @@ class ListDiffLines extends AbstractDiff
     private function setInnerHtml(DOMNode $node, string $html) : void
     {
         $html = sprintf('<%s>%s</%s>', 'body', $html, 'body');
-        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+        $html = htmlentities($html, 'HTML-ENTITIES', 'UTF-8');
 
         $node->nodeValue = '';
 

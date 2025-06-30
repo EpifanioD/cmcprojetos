@@ -59,7 +59,7 @@
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item border-top text-center" >
-            <span class="align-middle text-center">Tarefas Internaa</span>
+            <span class="align-middle text-center">Tarefas Internas</span>
         </li>
     </ul>
 </div>

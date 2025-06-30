@@ -19,7 +19,6 @@ class Users_model extends Crud_model {
 
         $this->db_builder->select("id,user_type,client_id,password");
         $result = $this->db_builder->getWhere(array('email' => $email, 'status' => 'active', 'deleted' => 0, 'disable_login' => 0));
-
         $result_count = count($result->getResult());
         if (!$result_count) {
             return false;

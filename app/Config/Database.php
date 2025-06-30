@@ -22,7 +22,7 @@ class Database extends Config
 	 *
 	 * @var string
 	 */
-	public $defaultGroup = 'tests';
+	public $defaultGroup = 'default';
 
 	/**
 	 * The default database connection.
@@ -31,7 +31,7 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
+		'hostname' => 'db',
 		'username' => 'cmcbusiness_rise',
 		'password' => '2vm98Jqbn5Z%',
 		'database' => 'cmcbusiness_rise',
@@ -56,10 +56,10 @@ class Database extends Config
 	 * @var array
 	 */
 	public $tests = [
-		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'database' => 'cmcbusiness_rise'
+		'hostname' => 'db',
+		'username' => 'cmcbusiness_rise',
+		'password' => '2vm98Jqbn5Z%',
+		'database' => 'cmcbusiness_rise',
 	];
 
 	//--------------------------------------------------------------------

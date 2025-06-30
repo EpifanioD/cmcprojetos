@@ -19,6 +19,7 @@ class Crud_model extends Model {
     private $log_for_key2 = "";
     protected $allowedFields = array();
     private $Activity_logs_model;
+    protected ?string $log_type_title_key = null;
 
     function __construct($table = null, $db = null) {
         $this->Activity_logs_model = model("App\Models\Activity_logs_model");

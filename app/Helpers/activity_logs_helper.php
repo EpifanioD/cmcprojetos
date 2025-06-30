@@ -51,8 +51,8 @@ if (!function_exists('get_change_logs')) {
             } else if (get_array_value($schema_info, "type") === "text") {
                 $from_value = is_null($from_value) ? "" : $from_value;
                 $to_value = is_null($to_value) ? "" : $to_value;
-                $from_value = mb_convert_encoding($from_value, 'HTML-ENTITIES', 'UTF-8');
-                $to_value = mb_convert_encoding($to_value, 'HTML-ENTITIES', 'UTF-8');
+                $from_value = htmlentities($from_value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                $to_value = htmlentities($to_value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
                 require_once(APPPATH . "ThirdParty/php-htmldiff/vendor/autoload.php");
                 $htmlDiff = new \Caxy\HtmlDiff\HtmlDiff(nl2br($from_value), nl2br($to_value));
